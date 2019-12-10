@@ -4,7 +4,7 @@ import threading
 from discord.ext import commands
 
 
-TOKEN = 'NjAzNzI0NDkwNDg0MDg4ODQy.XeFGlw.I4lYwnLykI3DY9bRzCBQ2eQFDig'
+TOKEN = os.environ.get("DISCORD_TOKEN")
 print(TOKEN)
 
 bot = commands.Bot(command_prefix='%')
