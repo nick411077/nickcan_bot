@@ -1,5 +1,5 @@
 import os
-import pymongo
+import asyncio
 import threading
 from discord.ext import commands
 
@@ -55,6 +55,11 @@ def run_it_forever(loop):
 
 
 def run_server():
-    thread = threading.Thread(target=bot.run(TOKEN))
+    asyncio.get_child_watcher()  # I still don't know if I need this method. It works without it.
+
+    loop = asyncio.get_event_loop()
+    loop.create_task(start())
+
+    thread = threading.Thread(target=run_it_forever, args=(loop,))
     thread.start()
 
