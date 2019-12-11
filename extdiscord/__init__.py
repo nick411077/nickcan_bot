@@ -1,1 +1,1 @@
-from .bot import run_server, bot
+from .bot import run_server
