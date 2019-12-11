@@ -7,7 +7,33 @@ from discord.ext import commands
 TOKEN = os.environ.get("DISCORD_TOKEN")
 print(TOKEN)
 
-bot = commands.Bot(command_prefix='%')
+
+class DiscordClientWrapper:
+    def __init__(self):
+        self._loop = asyncio.new_event_loop()
+        self._core = commands.Bot(loop=self._loop, command_prefix='%')
+
+    def run(self, token):
+        self._core.run(token)
+
+    async def start(self, token):
+        await self._core.start(token)
+
+    def latency(self) -> float:
+        return self._core.latency
+
+    @property
+    def discord_client(self):
+        return self._core
+
+    @property
+    def discord_loop(self):
+        return self._loop
+
+
+_inst = DiscordClientWrapper()
+
+bot = _inst._core
 
 bot.remove_command('help')
 
@@ -46,20 +72,8 @@ for filename in os.listdir('./extdiscord/cogs'):
             raise e
 
 
-async def start():
-    await bot.start(TOKEN)
-
-
-def run_it_forever(loop):
-    loop.run_forever()
-
-
 def run_server():
-    asyncio.get_child_watcher()  # I still don't know if I need this method. It works without it.
-
-    loop = asyncio.get_event_loop()
-    loop.create_task(start())
-
-    thread = threading.Thread(target=run_it_forever, args=(loop,))
+    # Obtained from https://github.com/Rapptz/discord.py/issues/710#issuecomment-395609297
+    thread = threading.Thread(target=_inst.discord_loop.run_until_complete, args=(_inst.start(TOKEN),))
     thread.start()
 
