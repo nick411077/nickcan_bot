@@ -10,8 +10,6 @@ pymongo
 boto
 heroku3
 dnspython
-pynacl
-opuslib
 twitch-python
 python-dateutil
 whitenoise
