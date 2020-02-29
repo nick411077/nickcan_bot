@@ -60,8 +60,8 @@ async def unload(ctx, extension):
 @bot.command()
 async def reload(ctx, extension):
     try:
-        bot.unload_extension(f'cogs.{extension}')
-        bot.load_extension(f'cogs.{extension}')
+        bot.unload_extension(f'extdiscord.cogs.{extension}')
+        bot.load_extension(f'extdiscord.cogs.{extension}')
         await ctx.send(f'reload {extension} done')
     except Exception as e:
         print(f"{extension} cannot be loaded:")
@@ -70,7 +70,7 @@ async def reload(ctx, extension):
 
 for filename in os.listdir('./extdiscord/cogs'):
     if filename == "__init__.py":
-        break
+        continue
     if filename.endswith('.py'):
         try:
             bot.load_extension(f'extdiscord.cogs.{filename[:-3]}')
