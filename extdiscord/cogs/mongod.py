@@ -67,7 +67,7 @@ class Mongo(commands.Cog):
                 con_desc += f"{y['name']}\n"
             embed = discord.Embed(title="詞彙查詢", description=f"內容\n{con_desc}", color=0xeee657)
             print(f"{con_desc}")
-            await ctx.message.author.send(embed=embed)
+            await ctx.author.send(embed=embed)
             """這是全部的詞彙列表"""
     @saylist.error
     async def sayrlist_error(self, ctx, error):
