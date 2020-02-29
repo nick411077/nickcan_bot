@@ -9,3 +9,4 @@ for user in helix.users(usernames):
     except twitch.helix.resources.streams.StreamNotFound:
         continue
     print(user.stream)
+    print("test")
