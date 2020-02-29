@@ -27,8 +27,14 @@ class Example(commands.Cog):
 
     @commands.command()
     async def ping(self, ctx):
+        """This is a check ping."""
         await ctx.send(f'Pong! {round(self.bot.latency * 1000)}ms')
         await ctx.message.delete(delay=3)
+
+    @commands.command()
+    async def github(self, ctx):
+        """This is a github URL."""
+        await ctx.send('https://github.com/nick411077/nickcan_bot')
 
     @commands.command()
     async def info(self, ctx):

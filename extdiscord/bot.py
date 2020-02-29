@@ -38,6 +38,12 @@ bot = _inst._core
 bot.remove_command('help')
 
 
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        await ctx.send("try")
+
+
 @bot.command()
 async def load(ctx, extension):
     bot.load_extension(f'cogs.{extension}')
@@ -64,6 +70,8 @@ async def reload(ctx, extension):
 
 
 for filename in os.listdir('./extdiscord/cogs'):
+    if filename == "__init__.py":
+        break
     if filename.endswith('.py'):
         try:
             bot.load_extension(f'extdiscord.cogs.{filename[:-3]}')

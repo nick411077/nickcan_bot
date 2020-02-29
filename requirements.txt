@@ -1,4 +1,5 @@
-discord.py[voice]
+discord.py[voice]==1.3.2
+django
 colorlog
 chardet
 cffi
@@ -10,5 +11,5 @@ heroku3
 dnspython
 pynacl
 opuslib
-python-twitch-client
+twitch-python
 zc.lockfile

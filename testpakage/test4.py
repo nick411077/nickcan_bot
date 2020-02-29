@@ -1,9 +1,9 @@
 import requests
 import configparser
 import time
-
+import twitch
 streams_current = {}
-usernames = 'muse_tw', 'latteda_', 'twnickcan'
+usernames = 'muse_tw', 'latteda_', 'twnickcan', 'miyaaoba'
 
 
 
@@ -35,6 +35,7 @@ def mainloop():
 def get_streams():
     streams = {}
     headers = {'Client-ID': 'g3v9rj6v0t5cuthn57g3s9sd1sngmz'}
+    ClientID = 'g3v9rj6v0t5cuthn57g3s9sd1sngmz'
     width = 640
     height = 360
 
@@ -102,10 +103,6 @@ def announce_streams(streamids_changed, streams_current, streams_new):
                 }
             ]
         }
-
-        p = requests.post('', json=payload)
-        q = requests.post('', json=payload)
-
 
 
 if __name__ == "__main__":

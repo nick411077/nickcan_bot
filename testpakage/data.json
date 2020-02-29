@@ -1,5 +1,17 @@
-{
-    "error": "Unauthorized",
-    "status": 401,
-    "message": "Must provide a valid Client-ID or OAuth token"
-}
+[
+    {
+        "id": "37042332048",
+        "user_id": "451374597",
+        "user_name": "木棉花官方頻道",
+        "game_id": "509658",
+        "type": "live",
+        "title": "這個勇者明明超強卻過度慎重 馬拉松連播",
+        "viewer_count": 2142,
+        "started_at": "2020-02-29T09:00:50Z",
+        "language": "zh",
+        "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_muse_tw-{width}x{height}.jpg",
+        "tag_ids": [
+            "74c92063-a389-4fd2-8460-b1bb82b04ec7"
+        ]
+    }
+]

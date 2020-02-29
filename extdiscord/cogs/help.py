@@ -37,8 +37,9 @@ class Help(commands.Cog):
                             cogs_desc += f'**{c.name}** - {c.help}\n'
                     halp.add_field(name=x, value=f'{self.bot.cogs[x].__doc__}\n\n{cogs_desc}', inline=False)
                 await ctx.send('', embed=halp)
+                #help整個列表
             else:
-                if len(cog) > 1:
+                if len(cog) > 1: #判斷是否有超過1句
                     halp = discord.Embed(title='Error!', description='That is way too many cogs!',
                                          color=discord.Color.red())
                     await ctx.send('', embed=halp)

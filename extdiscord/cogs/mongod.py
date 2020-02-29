@@ -27,6 +27,12 @@ class Mongo(commands.Cog):
         print(f'{x} done')
         print(name)
 
+    """呼應前面的say"""
+    @say.error
+    async def say_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("try again")
+
     @commands.command()
     async def sayremove(self, ctx, name):
         """This is a vocabulary reply remove."""
@@ -36,6 +42,11 @@ class Mongo(commands.Cog):
         if y is not None:
             await ctx.send(f'{name} removed done')
             print(f'{name} removed')
+
+    @sayremove.error
+    async def sayremove_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("try again")
 
     @commands.command()
     async def saylist(self, ctx, *name):
@@ -57,6 +68,10 @@ class Mongo(commands.Cog):
             embed = discord.Embed(title="詞彙查詢", description=f"內容\n{con_desc}", color=0xeee657)
             await ctx.message.author.send(embed=embed)
             """這是全部的詞彙列表"""
+    @saylist.error
+    async def sayrlist_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("try again")
 
     @commands.Cog.listener()
     async def on_message(self, message):
