@@ -15,6 +15,7 @@ class DiscordClientWrapper:
 
     def run(self, token):
         self._core.run(token)
+
     async def start(self, token):
         await self._core.start(token)
 
@@ -66,6 +67,11 @@ async def reload(ctx, extension):
     except Exception as e:
         print(f"{extension} cannot be loaded:")
         raise e
+
+
+@bot.command()
+async def test(ctx):
+    await ctx.author.send('WHY')
 
 
 for filename in os.listdir('./extdiscord/cogs'):
