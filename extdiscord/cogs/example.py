@@ -45,7 +45,7 @@ class Example(commands.Cog):
                         value="[Invite link](https://discordapp.com/api/oauth2/authorize?client_id=372616811734368257"
                               "&permissions=8&scope=bot)")
         await ctx.message.delete()
-        await ctx.send(embed=embed)
+        await ctx.author.send(embed=embed)
         await ctx.message.delete(delay=3)
 
     @commands.command()
