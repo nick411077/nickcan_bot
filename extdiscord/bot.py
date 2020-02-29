@@ -11,11 +11,10 @@ print(TOKEN)
 class DiscordClientWrapper:
     def __init__(self):
         self._loop = asyncio.new_event_loop()
-        self._core = commands.Bot(loop=self._loop, command_prefix='$')
+        self._core = commands.Bot(loop=self._loop, command_prefix='')
 
     def run(self, token):
         self._core.run(token)
-
     async def start(self, token):
         await self._core.start(token)
 
