@@ -1,5 +1,6 @@
 discord.py[voice]==1.3.2
 django
+django-html_sanitizer
 colorlog
 chardet
 cffi
@@ -12,4 +13,6 @@ dnspython
 pynacl
 opuslib
 twitch-python
-zc.lockfile
+python-dateutil
+whitenoise
+requests

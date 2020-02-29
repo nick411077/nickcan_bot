@@ -25,7 +25,7 @@ SECRET_KEY = 'ibn4@o1y%_7kuq+$928g)=dhe#p@9dpa2=9gcn_p_7vh53#mp('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
