@@ -6,7 +6,7 @@ chardet
 cffi
 aiohttp
 websockets
-pymongo
+pymongo[srv]
 boto
 heroku3
 dnspython
