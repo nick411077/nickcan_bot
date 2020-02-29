@@ -19,5 +19,4 @@ from nickcan_bot.oauth2 import Oauth
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', Oauth.discord_login_url),
 ]
