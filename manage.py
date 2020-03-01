@@ -2,6 +2,7 @@
 import os
 import sys
 
+from nickcan_bot.systemconfig import System
 
 def django_main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'nickcan_bot.settings')
@@ -22,7 +23,14 @@ def discord_main():
     run_server()
 
 
+def ping_spam():
+    from extutils import activate_ping_spam
+
+    activate_ping_spam(System.PingSpamWaitSeconds)
+
+
 if __name__ == '__main__':
     if sys.argv[1] == "runserver":
         discord_main()
+        ping_spam()
     django_main()
