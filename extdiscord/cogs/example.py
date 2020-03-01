@@ -42,7 +42,7 @@ class Example(commands.Cog):
         embed.add_field(name="Author", value="nickcan")
         embed.add_field(name="Server count", value=f"{len(self.bot.guilds)}")
         embed.add_field(name="Invite",
-                        value="[Invite link](https://discordapp.com/api/oauth2/authorize?client_id=372616811734368257"
+                        value=f"[Invite link](https://discordapp.com/api/oauth2/authorize?client_id={self.bot.user.id}"
                               "&permissions=8&scope=bot)")
         await ctx.message.delete()
         await ctx.author.send(embed=embed)
