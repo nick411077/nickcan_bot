@@ -1,0 +1,1 @@
+from .spamping import activate_ping_spam
