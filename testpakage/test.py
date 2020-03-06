@@ -7,6 +7,6 @@ for user in helix.users(usernames):
     try:
         user.stream.type
     except twitch.helix.resources.streams.StreamNotFound:
+        print('None')
         continue
-    print(user.stream)
-    print("test")
+    print(user.stream.data)
