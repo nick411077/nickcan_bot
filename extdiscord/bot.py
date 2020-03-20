@@ -90,5 +90,3 @@ def run_server():
     thread = threading.Thread(target=_inst.discord_loop.run_until_complete, args=(_inst.start(TOKEN),))
     thread.start()
 
-
-run_server()
