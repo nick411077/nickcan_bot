@@ -71,10 +71,7 @@ class Mongo(commands.Cog):
             await ctx.author.send('JOJO')
             await ctx.author.send(embed=embed)
             """這是全部的詞彙列表"""
-    @saylist.error
-    async def sayrlist_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("try again")
+
 
     @commands.Cog.listener()
     async def on_message(self, message):
