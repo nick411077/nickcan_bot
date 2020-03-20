@@ -74,12 +74,12 @@ async def test(ctx):
     await ctx.author.send('WHY')
 
 
-for filename in os.listdir('./extdiscord/cogs'):
+for filename in os.listdir('./cogs'):
     if filename == "__init__.py":
         continue
     if filename.endswith('.py'):
         try:
-            bot.load_extension(f'extdiscord.cogs.{filename[:-3]}')
+            bot.load_extension(f'cogs.{filename[:-3]}')
         except Exception as e:
             print(f"{filename} cannot be loaded:")
             raise e
@@ -90,3 +90,5 @@ def run_server():
     thread = threading.Thread(target=_inst.discord_loop.run_until_complete, args=(_inst.start(TOKEN),))
     thread.start()
 
+
+run_server()
