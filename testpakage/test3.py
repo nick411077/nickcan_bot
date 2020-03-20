@@ -18,6 +18,7 @@ lock = None
 image_priority = None
 discord_description = 'Come watch me!'
 
+
 def main():
     twitch_json = {'data': []}
     while len(twitch_json['data']) == 0:
@@ -128,5 +129,6 @@ def main():
         else:
             print("Stream is not live. Waiting 5 seconds to retry...")
             time.sleep(5)
+
 
 main()
