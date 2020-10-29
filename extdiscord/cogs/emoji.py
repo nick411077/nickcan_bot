@@ -24,8 +24,10 @@ class Emoji(commands.Cog):
         else:
             await ctx.send('👍')
 
-
-
+    @commands.Cog.listener()
+    async def on_reaction_add(self, reaction, user):
+        print(reaction)
+        print(user)
 
 def setup(bot):
     bot.add_cog(Emoji(bot))

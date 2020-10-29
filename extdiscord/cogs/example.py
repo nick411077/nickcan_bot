@@ -11,7 +11,8 @@ class Example(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        await self.bot.change_presence(status=discord.Status.online, activity=discord.Game(type=0, name="$help"))
+        from extdiscord import COMMAND
+        await self.bot.change_presence(status=discord.Status.online, activity=discord.Game(type=0, name=f"{COMMAND}help"))
         print('Bot is Online{0}!'.format(self.bot.user))
         print(self.bot.user.id)
 

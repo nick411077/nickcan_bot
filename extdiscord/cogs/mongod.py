@@ -67,11 +67,8 @@ class Mongo(commands.Cog):
                 con_desc += f"{y['name']}\n"
             embed = discord.Embed(title="詞彙查詢", description=f"內容\n{con_desc}", color=0xeee657)
             print(ctx.author.id)
-            await ctx.send(embed=embed)
-            await ctx.author.send('JOJO')
             await ctx.author.send(embed=embed)
             """這是全部的詞彙列表"""
-
 
     @commands.Cog.listener()
     async def on_message(self, message):

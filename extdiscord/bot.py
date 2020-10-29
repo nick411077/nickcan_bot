@@ -1,17 +1,22 @@
 import os
+import sys
+from .token import TOKEN
 import asyncio
 import threading
 from discord.ext import commands
 
+__all__ = ["COMMAND"]
 
-TOKEN = os.environ.get("DISCORD_TOKEN")
-print(TOKEN)
+COMMAND = os.environ.get("DISCORD_COMMAND")
+if not TOKEN:
+    print("Specify discord bot command as DISCORD_COMMAND in environment variables.")
+    sys.exit(1)
 
 
 class DiscordClientWrapper:
     def __init__(self):
         self._loop = asyncio.new_event_loop()
-        self._core = commands.Bot(loop=self._loop, command_prefix=os.environ.get("DISCORD_COMMAND"))
+        self._core = commands.Bot(loop=self._loop, command_prefix=COMMAND)
 
     def run(self, token):
         self._core.run(token)
